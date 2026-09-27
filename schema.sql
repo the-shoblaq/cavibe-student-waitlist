@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS student_survey_responses(
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, public_id CHAR(36) NOT NULL UNIQUE,
  full_name VARCHAR(120) NOT NULL,email VARCHAR(190) NOT NULL UNIQUE,phone VARCHAR(30) NOT NULL,
  school VARCHAR(190) NOT NULL,campus_location VARCHAR(190),student_level VARCHAR(60) NOT NULL,
- primary_goal VARCHAR(100) NOT NULL,biggest_problem TEXT NOT NULL,willing_to_test VARCHAR(10) NOT NULL,
+ primary_goal VARCHAR(200) NOT NULL,biggest_problem TEXT NOT NULL,willing_to_test VARCHAR(10) NOT NULL,
  preferred_contact VARCHAR(30),referral_code VARCHAR(50),consent TINYINT(1) NOT NULL DEFAULT 0,
  marketing_consent TINYINT(1) NOT NULL DEFAULT 0,source VARCHAR(80),created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
  KEY idx_school(school),KEY idx_created(created_at)
