@@ -86,7 +86,6 @@ $joined = (($_GET['joined'] ?? '') === '1');
     <span>📡 Connect</span>
     <span>🎬 Create</span>
     <span>🏫 Campus</span>
-    <span>💼 Opportunities</span>
     <span>🎉 Live Events</span>
     <span>🛍 Marketplace</span>
     <span>🏆 Rewards</span>
