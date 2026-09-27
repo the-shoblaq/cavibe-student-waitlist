@@ -1,0 +1,317 @@
+:root{
+  --bg:#ffffff;
+  --surface:#f5f6fa;
+  --border:#e8eaf0;
+  --text:#0d0f14;
+  --muted:#6b7280;
+  --gold:#f2c84b;
+  --gold-dark:#d4a017;
+  --tab-h:68px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',Inter,system-ui,sans-serif;
+  font-size:16px;
+  padding-bottom:var(--tab-h);
+  min-height:100dvh;
+}
+
+/* ── TOP HEADER ── */
+.app-header{
+  position:sticky;top:0;z-index:100;
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  height:58px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 18px;
+}
+.app-header .logo{height:26px;width:auto;display:block}
+.app-header .header-action{
+  font-size:13px;font-weight:700;color:var(--text);
+  text-decoration:none;
+  background:var(--gold);
+  padding:7px 14px;border-radius:20px;
+}
+
+/* ── BOTTOM TAB BAR ── */
+.tab-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:200;
+  height:var(--tab-h);
+  background:#fff;
+  border-top:1px solid var(--border);
+  display:flex;
+  padding-bottom:env(safe-area-inset-bottom,0);
+}
+.tab-item{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:4px;
+  text-decoration:none;cursor:pointer;border:0;background:none;
+  color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.3px;
+  padding:0;
+  transition:color .15s;
+}
+.tab-item.active{color:var(--text)}
+.tab-item svg{width:22px;height:22px;stroke-width:1.8}
+.tab-item.active svg{stroke-width:2.2}
+
+/* ── HERO ── */
+.hero{
+  padding:32px 18px 28px;
+  background:var(--bg);
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:5px 12px;
+  font-size:11px;font-weight:800;letter-spacing:1.2px;color:var(--muted);
+  margin-bottom:18px;
+}
+.hero-eyebrow span{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--gold);display:block;
+}
+.hero h1{
+  font-size:clamp(30px,8vw,48px);
+  font-weight:900;line-height:1.05;letter-spacing:-1.5px;
+  margin:0 0 14px;color:var(--text);
+}
+.hero h1 em{font-style:normal;color:var(--gold-dark)}
+.hero p{
+  color:var(--muted);font-size:15px;line-height:1.65;
+  margin:0 0 24px;max-width:520px;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--text);color:#fff!important;
+  padding:14px 22px;border:0;border-radius:14px;
+  font-weight:800;font-size:15px;text-decoration:none;cursor:pointer;
+  transition:opacity .15s;
+}
+.btn:active{opacity:.8}
+.btn-gold{background:var(--gold);color:var(--text)!important}
+.btn-whatsapp{background:#25d366;color:#fff!important;margin-top:22px;width:100%;justify-content:center;gap:9px;font-size:15px}
+
+/* Feature pills */
+.feature-pills{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;
+}
+.feature-pills span{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:7px 13px;
+  font-size:12px;font-weight:700;color:var(--muted);
+}
+
+/* Stats row */
+.stats-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--border);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;margin:28px 0 0;
+}
+.stat-cell{
+  background:#fff;padding:16px 10px;text-align:center;
+}
+.stat-cell strong{display:block;font-size:22px;font-weight:900;letter-spacing:-1px}
+.stat-cell small{font-size:11px;color:var(--muted);font-weight:600}
+
+/* ── SURVEY SECTION ── */
+.survey-section{
+  padding:0 0 24px;
+  display:none;
+}
+.survey-section.active{display:block}
+
+.survey-card{
+  background:#fff;
+  margin:16px 14px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+}
+.survey-card-header{
+  padding:20px 20px 0;
+}
+.step-label{
+  font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--muted);
+  margin-bottom:6px;display:block;
+}
+.survey-card h3{
+  font-size:20px;font-weight:800;letter-spacing:-.5px;margin:0 0 18px;
+}
+.progress-wrap{height:3px;background:var(--surface);position:relative;margin:0 0 22px}
+.progress-bar{position:absolute;left:0;top:0;height:100%;background:var(--gold);border-radius:2px;transition:width .3s}
+
+.step{display:none;padding:0 20px 22px}
+.step.active{display:block}
+
+/* Step indicator top */
+.step-counter{
+  font-size:12px;font-weight:700;color:var(--muted);
+  padding:14px 20px 0;
+  display:flex;justify-content:space-between;align-items:center;
+}
+
+/* ── FORM ELEMENTS ── */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{font-size:13px;font-weight:700;color:var(--text);display:block}
+input,select,textarea{
+  width:100%;padding:13px 14px;margin-top:6px;
+  border:1.5px solid var(--border);border-radius:12px;
+  background:#fff;color:var(--text);
+  font:inherit;font-size:15px;
+  appearance:none;-webkit-appearance:none;
+  transition:border-color .15s;
+}
+input:focus,select:focus,textarea:focus{
+  outline:none;border-color:var(--text);
+}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+textarea{min-height:110px;resize:vertical}
+fieldset{border:0;padding:0;margin:20px 0 0}
+legend{font-size:13px;font-weight:700;margin-bottom:4px}
+legend em{font-weight:500;color:var(--muted);font-size:12px}
+
+/* Checks / chips */
+.checks,.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.checks input,.chips input,.rating input{position:absolute;opacity:0;pointer-events:none}
+.checks span,.chips span{
+  display:block;
+  border:1.5px solid var(--border);
+  background:#fff;
+  border-radius:999px;
+  padding:9px 14px;
+  cursor:pointer;
+  font-size:13px;font-weight:600;color:var(--text);
+  transition:all .15s;
+  user-select:none;
+}
+.checks input:checked+span,.chips input:checked+span{
+  border-color:var(--text);
+  background:var(--text);
+  color:#fff;
+}
+
+/* Other text input for checks */
+#current_apps_other,#valuable_features_other,#earning_opportunities_other,
+#payment_methods_other,#earning_concerns_other,#safety_features_other,
+#accessibility_features_other,#stop_reasons_other,#creation_tools_other,
+#communication_features_other{
+  margin-top:10px;
+}
+
+/* Scale / matrix */
+.scale{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:10px 13px;
+  color:var(--muted);font-size:12px;margin-bottom:4px;
+}
+.matrix{display:grid;gap:8px;margin:12px 0 20px}
+.matrix-row{
+  border:1.5px solid var(--border);border-radius:12px;
+  padding:12px;background:#fff;
+}
+.matrix-row p{font-size:13px;line-height:1.4;margin:0 0 10px;font-weight:600}
+.rating{display:flex;gap:6px;justify-content:space-between}
+.rating label{flex:1}
+.rating span{
+  display:flex;align-items:center;justify-content:center;
+  height:36px;
+  border:1.5px solid var(--border);border-radius:10px;
+  cursor:pointer;font-size:13px;font-weight:700;color:var(--muted);
+  transition:all .15s;
+  width:100%;
+}
+.rating input:checked+span{
+  background:var(--text);border-color:var(--text);
+  color:#fff;
+}
+
+/* Nav buttons */
+.nav{
+  display:flex;gap:10px;padding:16px 20px 20px;
+  border-top:1px solid var(--border);
+  background:#fff;
+}
+.nav button{
+  flex:1;padding:14px;border-radius:14px;
+  font:inherit;font-size:15px;font-weight:700;
+  cursor:pointer;transition:all .15s;
+}
+.nav button:first-child{
+  background:var(--surface);color:var(--text);border:1.5px solid var(--border);
+}
+.nav .btn{flex:2;justify-content:center;border-radius:14px;padding:14px}
+.hidden{display:none!important}
+.hp{position:absolute;left:-9999px}
+.error{color:#ef4444;font-size:13px;padding:0 20px 12px;font-weight:600}
+
+/* Consents */
+.consents{display:grid;gap:12px;margin-top:20px}
+.consents label{
+  display:flex;gap:10px;font-size:13px;font-weight:500;
+  color:var(--muted);line-height:1.5;align-items:flex-start;
+}
+.consents input{width:auto;margin:2px 0;flex-shrink:0;accent-color:var(--text)}
+
+/* Idea block */
+.idea{display:block;margin-top:20px}
+.idea strong{display:block;font-size:14px;font-weight:700;margin-bottom:3px}
+.idea em{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-bottom:0}
+
+/* Success */
+.success{
+  text-align:center;padding:60px 24px;
+}
+.success-icon{
+  width:64px;height:64px;border-radius:50%;
+  background:var(--text);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;margin:0 auto 20px;
+}
+.success h2{font-size:24px;font-weight:900;margin:0 0 10px}
+.success p{color:var(--muted);font-size:15px}
+.success small{
+  display:block;font-size:11px;font-weight:800;letter-spacing:1.5px;
+  color:var(--muted);margin-bottom:10px;
+}
+
+/* ── ABOUT / INFO SECTION ── */
+.about-section{
+  padding:24px 14px;
+  display:none;
+}
+.about-section.active{display:block}
+.section-heading{
+  font-size:22px;font-weight:900;letter-spacing:-.5px;margin:0 0 6px;
+}
+.section-sub{font-size:14px;color:var(--muted);margin:0 0 22px}
+
+.info-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:18px;margin-bottom:12px;
+}
+.info-card h4{font-size:15px;font-weight:800;margin:0 0 6px}
+.info-card p{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
+.info-card .tag{
+  display:inline-block;background:var(--gold);color:var(--text);
+  font-size:10px;font-weight:800;letter-spacing:1px;
+  border-radius:20px;padding:3px 9px;margin-bottom:8px;
+}
+
+/* Grid 2 col for info cards */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* ── DESKTOP ADJUSTMENTS ── */
+@media(min-width:640px){
+  body{max-width:500px;margin:0 auto}
+  .tab-bar{max-width:500px;left:50%;transform:translateX(-50%)}
+  .app-header{max-width:500px;margin:0 auto}
+}
+@media(min-width:900px){
+  body{max-width:480px}
+  .tab-bar{max-width:480px}
+  .app-header{max-width:480px}
+}
