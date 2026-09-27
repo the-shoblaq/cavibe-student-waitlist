@@ -12,7 +12,11 @@ if (str_starts_with($_uri, '/admin')) {
     $page = basename($page, '.php');
     $page = preg_replace('/[^a-zA-Z0-9_-]/', '', $page) ?: 'index';
     $adminFile = __DIR__ . '/admin/' . $page . '.php';
-    if (is_file($adminFile)) { require $adminFile; exit; }
+    if (is_file($adminFile)) {
+        header('Content-Type: text/html; charset=utf-8');
+        require $adminFile;
+        exit;
+    }
     http_response_code(404); exit('Admin page not found.');
 }
 
