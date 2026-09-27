@@ -4,9 +4,16 @@
     "api/submit.php": { "runtime": "vercel-php@0.7.1" },
     "api/db-check.php": { "runtime": "vercel-php@0.7.1" }
   },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [{ "key": "x-robots-tag", "value": "noindex" }]
+    }
+  ],
   "rewrites": [
-    { "source": "/submit.php",      "destination": "/api/submit.php"   },
-    { "source": "/db-check",        "destination": "/api/db-check.php" },
-    { "source": "/((?!assets/).*)", "destination": "/api/index.php"    }
+    { "source": "/submit.php",           "destination": "/api/submit.php"   },
+    { "source": "/db-check",             "destination": "/api/db-check.php" },
+    { "source": "/api/:path*",           "destination": "/api/index.php"    },
+    { "source": "/((?!assets/).*)",      "destination": "/api/index.php"    }
   ]
 }
