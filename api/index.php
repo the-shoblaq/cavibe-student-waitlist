@@ -357,10 +357,15 @@ $joined = (($_GET['joined'] ?? '') === '1');
           <textarea name="final_suggestion"></textarea>
         </label>
         <div class="consents">
-          <label><input type="checkbox" name="consent" value="1" required checked><span>I consent to Cavibe storing my survey response and contact details for this research and waiting list.</span></label>
-          <label><input type="checkbox" name="marketing_consent" value="1" checked><span>I want Cavibe launch, testing and product updates.</span></label>
+          <label>
+            <input type="checkbox" name="consent" value="1" required checked>
+            <span>I consent to Cavibe storing my survey response and contact details for this research and waiting list.</span>
+          </label>
+          <label>
+            <input type="checkbox" name="marketing_consent" value="1" checked>
+            <span>I want Cavibe launch, testing and product updates.</span>
+          </label>
         </div>
-      </div>
 
       <div id="formError" class="error"></div>
       <div class="nav">
