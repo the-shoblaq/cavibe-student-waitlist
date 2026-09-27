@@ -1,4 +1,9 @@
 <?php
+// Let PHP built-in server (Vercel) serve static files directly
+if (php_sapi_name() === 'cli-server') {
+    $file = realpath(__DIR__ . '/..' . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+    if ($file && is_file($file)) return false;
+}
 session_start();
 if(empty($_SESSION['csrf'])) $_SESSION['csrf'] = bin2hex(random_bytes(32));
 
@@ -162,12 +167,10 @@ $joined = (($_GET['joined'] ?? '') === '1');
           <legend>Apps you use most</legend>
           <?php checks('current_apps',['TikTok','Instagram','WhatsApp','X / Twitter','Facebook','Snapchat','YouTube','LinkedIn']); ?>
         </fieldset>
-        <label style="margin-top:16px">Main reason for using social platforms
-          <select name="primary_goal" required>
-            <option value="">Select</option>
-            <?php foreach(['Entertainment','Connect with friends','Create content / grow audience','Learn / discover information','Jobs and opportunities','Buy or sell products','Professional connections','Other'] as $v) echo "<option>$v</option>"; ?>
-          </select>
-        </label>
+        <fieldset style="margin-top:16px">
+          <legend>Main reason for using social platforms <em>Select up to 5</em></legend>
+          <?php checks('primary_goal',['Entertainment','Connect with friends','Create content / grow audience','Learn / discover information','Jobs and opportunities','Buy or sell products','Professional connections'],true,5); ?>
+        </fieldset>
         <label style="margin-top:14px">Biggest problem with current social or campus platforms
           <textarea name="biggest_problem" required></textarea>
         </label>
@@ -205,7 +208,7 @@ $joined = (($_GET['joined'] ?? '') === '1');
               <?php foreach(['Very unlikely','Unlikely','Neither likely nor unlikely','Likely','Very likely'] as $v) echo "<option>$v</option>"; ?>
             </select>
           </label>
-          <label>How often might you use it?
+          <label>How well will you use Cavibe?
             <select name="usage_frequency">
               <option value="">Select</option>
               <?php foreach(['Less than once a week','A few times a week','About once a day','Several times a day','I would not use it'] as $v) echo "<option>$v</option>"; ?>
