@@ -5,8 +5,14 @@
     }
   },
   "rewrites": [
-    { "source": "/submit.php",  "destination": "/api/submit.php"   },
-    { "source": "/db-check",    "destination": "/api/db-check.php" },
-    { "source": "/((?!assets/).*)", "destination": "/api/index.php" }
+    { "source": "/submit.php",            "destination": "/api/submit.php"          },
+    { "source": "/db-check",              "destination": "/api/db-check.php"        },
+    { "source": "/admin",                 "destination": "/api/admin/index.php"     },
+    { "source": "/admin/",                "destination": "/api/admin/index.php"     },
+    { "source": "/admin/login.php",       "destination": "/api/admin/login.php"     },
+    { "source": "/admin/logout.php",      "destination": "/api/admin/logout.php"    },
+    { "source": "/admin/export.php",      "destination": "/api/admin/export.php"    },
+    { "source": "/admin/response.php",    "destination": "/api/admin/response.php"  },
+    { "source": "/((?!assets/).*)",       "destination": "/api/index.php"           }
   ]
 }
