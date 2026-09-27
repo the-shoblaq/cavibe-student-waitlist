@@ -37,7 +37,7 @@ $joined = (($_GET['joined'] ?? '') === '1');
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>Cavibe – Student Waitlist</title>
+<title>Cavibe – Students Waitlist</title>
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/favicon.png">
 <link rel="stylesheet" href="/assets/style.css">
