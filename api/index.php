@@ -59,7 +59,7 @@ $joined = (($_GET['joined'] ?? '') === '1');
     </svg>
     Home
   </button>
-  <button class="tab-item" data-tab="survey">
+  <button class="tab-item<?=$joined?' active':''?>" data-tab="survey">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
       <path d="M9 11l3 3L22 4"/>
       <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
@@ -77,8 +77,7 @@ $joined = (($_GET['joined'] ?? '') === '1');
 </nav>
 
 <!-- ══ HOME TAB ══ -->
-<section class="hero tab-section active" id="tab-home">
-  <div class="hero-eyebrow"><span></span>STUDENT SURVEY &amp; EARLY ACCESS</div>
+<section class="hero tab-section<?=$joined?'':' active'?>" id="tab-home">
   <h1>Help build the<br><em>app</em> you actually<br>want.</h1>
   <p>Cavibe is being built around connection, creators, campus communities, opportunities, live experiences, marketplace and rewards.</p>
   <button class="btn btn-gold tab-trigger" data-tab="survey">Take the survey &rarr;</button>
@@ -110,7 +109,7 @@ $joined = (($_GET['joined'] ?? '') === '1');
 </section>
 
 <!-- ══ SURVEY TAB ══ -->
-<section class="survey-section tab-section" id="tab-survey">
+<section class="survey-section tab-section<?=$joined?' active':''?>" id="tab-survey">
 <?php if($joined): ?>
   <div class="survey-card">
     <div class="success">
@@ -118,7 +117,7 @@ $joined = (($_GET['joined'] ?? '') === '1');
       <small>YOU'RE ON THE LIST</small>
       <h2>Thank you for helping shape Cavibe.</h2>
       <p>Your response has been recorded. We'll reach out when it's time.</p>
-      <a class="btn btn-whatsapp" href="https://chat.whatsapp.com/Fm9rPcBNIsOEmNo7bdxYWe?mode=gi_t" target="_blank" rel="noopener">
+      <a class="btn btn-whatsapp" href="https://chat.whatsapp.com/Fm9rPcBNIsOEmNo7bdxYWe" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Join the Waiting List Group
       </a>
@@ -201,20 +200,18 @@ $joined = (($_GET['joined'] ?? '') === '1');
           ] as $k=>$q) rating($k,$q,true);
           ?>
         </div>
-        <div class="grid">
-          <label>How likely are you to try Cavibe?
-            <select name="try_likelihood" required>
-              <option value="">Select</option>
-              <?php foreach(['Very unlikely','Unlikely','Neither likely nor unlikely','Likely','Very likely'] as $v) echo "<option>$v</option>"; ?>
-            </select>
-          </label>
-          <label>How well will you use Cavibe?
-            <select name="usage_frequency">
-              <option value="">Select</option>
-              <?php foreach(['Less than once a week','A few times a week','About once a day','Several times a day','I would not use it'] as $v) echo "<option>$v</option>"; ?>
-            </select>
-          </label>
-        </div>
+        <label style="margin-top:12px">How likely are you to try Cavibe?
+          <select name="try_likelihood" required>
+            <option value="">Select</option>
+            <?php foreach(['Very unlikely','Unlikely','Neither likely nor unlikely','Likely','Very likely'] as $v) echo "<option>$v</option>"; ?>
+          </select>
+        </label>
+        <label style="margin-top:12px">How well will you use Cavibe?
+          <select name="usage_frequency">
+            <option value="">Select</option>
+            <?php foreach(['Less than once a week','A few times a week','About once a day','Several times a day','I would not use it'] as $v) echo "<option>$v</option>"; ?>
+          </select>
+        </label>
       </div>
 
       <!-- STEP 4 -->
@@ -225,24 +222,22 @@ $joined = (($_GET['joined'] ?? '') === '1');
           <legend>Most valuable features <em>Select up to 5</em></legend>
           <?php checks('valuable_features',['Photo/image posts','Short text posts','Short-form videos','Live streaming','Stories','Direct messaging','Group chats','Likes/comments/reposts/shares','Hashtags/trending topics','Personalized recommendations','Chronological feed','Polls/questions','Student clubs/communities','Events/campus announcements','Bookmark/save posts','Creation tools/filters/music'],true,5); ?>
         </fieldset>
-        <div class="grid" style="margin-top:16px">
-          <label>Preferred feed
-            <select name="feed_preference">
-              <option>Choice between chronological and personalized</option>
-              <option>Chronological</option>
-              <option>Personalized by algorithm</option>
-              <option>No preference</option>
-            </select>
-          </label>
-          <label>Notification preference
-            <select name="notification_preference">
-              <option>Choose exactly which activities trigger notifications</option>
-              <option>Almost everything</option>
-              <option>Messages and mentions only</option>
-              <option>Very few or none</option>
-            </select>
-          </label>
-        </div>
+        <label style="margin-top:16px">Preferred feed
+          <select name="feed_preference">
+            <option>Choice between chronological and personalized</option>
+            <option>Chronological</option>
+            <option>Personalized by algorithm</option>
+            <option>No preference</option>
+          </select>
+        </label>
+        <label style="margin-top:12px">Notification preference
+          <select name="notification_preference">
+            <option>Choose exactly which activities trigger notifications</option>
+            <option>Almost everything</option>
+            <option>Messages and mentions only</option>
+            <option>Very few or none</option>
+          </select>
+        </label>
         <fieldset>
           <legend>Creation tools</legend>
           <?php checks('creation_tools',['Filters/effects','Video editing','Captions/subtitles','Music/sound library','Stickers/GIFs/emojis','Drawing tools','Polls/quizzes','Collaboration/duet','None']); ?>
@@ -293,26 +288,24 @@ $joined = (($_GET['joined'] ?? '') === '1');
           <legend>Essential safety features</legend>
           <?php checks('safety_features',['Private accounts','Block/mute','Easy reporting','Comment filters','DM controls','Two-factor authentication','Parental/guardian controls','Screen-time reminders','Misinformation labels','Human moderation']); ?>
         </fieldset>
-        <div class="grid" style="margin-top:16px">
-          <label>Business model
-            <select name="business_model">
-              <option>Free basic + optional premium</option>
-              <option>Free with ads</option>
-              <option>Low-cost subscription with few/no ads</option>
-              <option>I would not pay</option>
-              <option>No preference</option>
-            </select>
-          </label>
-          <label>Personalized advertisements
-            <select name="personalized_ads">
-              <option>Neutral</option>
-              <option>Completely unacceptable</option>
-              <option>Unacceptable</option>
-              <option>Acceptable</option>
-              <option>Completely acceptable</option>
-            </select>
-          </label>
-        </div>
+        <label style="margin-top:16px">Business model
+          <select name="business_model">
+            <option>Free basic + optional premium</option>
+            <option>Free with ads</option>
+            <option>Low-cost subscription with few/no ads</option>
+            <option>I would not pay</option>
+            <option>No preference</option>
+          </select>
+        </label>
+        <label style="margin-top:12px">Personalized advertisements
+          <select name="personalized_ads">
+            <option>Neutral</option>
+            <option>Completely unacceptable</option>
+            <option>Unacceptable</option>
+            <option>Acceptable</option>
+            <option>Completely acceptable</option>
+          </select>
+        </label>
         <fieldset>
           <legend>Accessibility features</legend>
           <?php checks('accessibility_features',['Automatic captions','Screen-reader compatibility','Adjustable text size','High contrast','Dark mode','Translation tools','Data-saving mode','Audio descriptions','None']); ?>
@@ -349,8 +342,8 @@ $joined = (($_GET['joined'] ?? '') === '1');
           <textarea name="final_suggestion"></textarea>
         </label>
         <div class="consents">
-          <label><input type="checkbox" name="consent" value="1" required><span>I consent to Cavibe storing my survey response and contact details for this research and waiting list.</span></label>
-          <label><input type="checkbox" name="marketing_consent" value="1"><span>I want Cavibe launch, testing and product updates.</span></label>
+          <label><input type="checkbox" name="consent" value="1" required checked><span>I consent to Cavibe storing my survey response and contact details for this research and waiting list.</span></label>
+          <label><input type="checkbox" name="marketing_consent" value="1" checked><span>I want Cavibe launch, testing and product updates.</span></label>
         </div>
       </div>
 

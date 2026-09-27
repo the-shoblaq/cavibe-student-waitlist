@@ -5,7 +5,8 @@
     }
   },
   "rewrites": [
-    { "source": "/submit.php", "destination": "/api/submit.php" },
+    { "source": "/submit.php",  "destination": "/api/submit.php"   },
+    { "source": "/db-check",    "destination": "/api/db-check.php" },
     { "source": "/((?!assets/).*)", "destination": "/api/index.php" }
   ]
 }
