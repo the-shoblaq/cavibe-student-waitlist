@@ -33,15 +33,15 @@ $joined = (($_GET['joined'] ?? '') === '1');
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Cavibe – Student Waitlist</title>
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/favicon.png">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
+<link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
 
 <!-- TOP HEADER -->
 <header class="app-header">
-  <img src="assets/logo.png" alt="Cavibe" class="logo">
+  <img src="/assets/logo.png" alt="Cavibe" class="logo">
   <a href="#" class="header-action tab-trigger" data-tab="survey">Join Waitlist</a>
 </header>
 
@@ -130,7 +130,7 @@ $joined = (($_GET['joined'] ?? '') === '1');
       <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
     </div>
 
-    <form id="surveyForm" action="submit.php" method="post">
+    <form id="surveyForm" action="/submit.php" method="post">
       <input type="hidden" name="csrf" value="<?=htmlspecialchars($_SESSION['csrf'])?>">
       <input type="hidden" name="source" value="<?=htmlspecialchars($_GET['src']??'direct')?>">
       <input class="hp" name="company_website">
@@ -403,6 +403,6 @@ $joined = (($_GET['joined'] ?? '') === '1');
   <button class="btn btn-gold tab-trigger" data-tab="survey" style="width:100%;justify-content:center;margin-top:8px">Take the survey &rarr;</button>
 </section>
 
-<script src="assets/app.js"></script>
+<script src="/assets/app.js"></script>
 </body>
 </html>
