@@ -4,6 +4,18 @@ if (php_sapi_name() === 'cli-server') {
     $file = realpath(__DIR__ . '/..' . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
     if ($file && is_file($file) && pathinfo($file, PATHINFO_EXTENSION) !== 'php') return false;
 }
+
+// Admin routing — dispatch before anything else
+$_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+if (str_starts_with($_uri, '/admin')) {
+    $page = preg_replace('#^/admin/?#', '', $_uri);
+    $page = basename($page, '.php');
+    $page = preg_replace('/[^a-zA-Z0-9_-]/', '', $page) ?: 'index';
+    $adminFile = __DIR__ . '/admin/' . $page . '.php';
+    if (is_file($adminFile)) { require $adminFile; exit; }
+    http_response_code(404); exit('Admin page not found.');
+}
+
 session_start();
 if(empty($_SESSION['csrf'])) $_SESSION['csrf'] = bin2hex(random_bytes(32));
 

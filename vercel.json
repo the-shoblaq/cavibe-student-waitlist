@@ -1,14 +1,12 @@
 {
   "functions": {
-    "api/**/*.php": {
-      "runtime": "vercel-php@0.7.1"
-    }
+    "api/index.php":  { "runtime": "vercel-php@0.7.1" },
+    "api/submit.php": { "runtime": "vercel-php@0.7.1" },
+    "api/db-check.php": { "runtime": "vercel-php@0.7.1" }
   },
   "rewrites": [
-    { "source": "/submit.php",        "destination": "/api/submit.php"   },
-    { "source": "/db-check",          "destination": "/api/db-check.php" },
-    { "source": "/admin/:path*",      "destination": "/api/admin.php"    },
-    { "source": "/admin",             "destination": "/api/admin.php"    },
-    { "source": "/((?!assets/).*)",   "destination": "/api/index.php"    }
+    { "source": "/submit.php",      "destination": "/api/submit.php"   },
+    { "source": "/db-check",        "destination": "/api/db-check.php" },
+    { "source": "/((?!assets/).*)", "destination": "/api/index.php"    }
   ]
 }
