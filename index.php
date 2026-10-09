@@ -44,6 +44,8 @@ function rating($name,$text,$required=false){
 }
 
 $joined = (($_GET['joined'] ?? '') === '1');
+// Base URL — works both at the root (Vercel) and in a subfolder (local Apache)
+$_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . '/';
 ?><!doctype html>
 <html lang="en">
 <head>
@@ -54,15 +56,15 @@ $joined = (($_GET['joined'] ?? '') === '1');
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Cavibe – Students Waitlist</title>
-<link rel="icon" type="image/png" href="/assets/favicon.png">
-<link rel="apple-touch-icon" href="/assets/favicon.png">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" type="image/png" href="<?=$_base?>assets/favicon.png">
+<link rel="apple-touch-icon" href="<?=$_base?>assets/favicon.png">
+<link rel="stylesheet" href="<?=$_base?>assets/style.css?v=2">
 </head>
 <body>
 
 <!-- TOP HEADER -->
 <header class="app-header">
-  <img src="/assets/logo.png" alt="Cavibe" class="logo">
+  <img src="<?=$_base?>assets/logo.png" alt="Cavibe" class="logo">
   <a href="#" class="header-action tab-trigger" data-tab="survey">Join Waitlist</a>
 </header>
 
@@ -149,7 +151,7 @@ $joined = (($_GET['joined'] ?? '') === '1');
       <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
     </div>
 
-    <form id="surveyForm" action="/submit.php" method="post">
+    <form id="surveyForm" action="<?=$_base?>submit.php" method="post">
       <input type="hidden" name="csrf" value="<?=htmlspecialchars($_SESSION['csrf'])?>">
       <input type="hidden" name="source" value="<?=htmlspecialchars($_GET['src']??'direct')?>">
       <input class="hp" name="company_website">
@@ -366,6 +368,7 @@ $joined = (($_GET['joined'] ?? '') === '1');
             <span>I want Cavibe launch, testing and product updates.</span>
           </label>
         </div>
+      </div><!-- /step 7 -->
 
       <div id="formError" class="error"></div>
       <div class="nav">
@@ -419,6 +422,6 @@ $joined = (($_GET['joined'] ?? '') === '1');
   <button class="btn btn-gold tab-trigger" data-tab="survey" style="width:100%;justify-content:center;margin-top:8px">Take the survey &rarr;</button>
 </section>
 
-<script src="/assets/app.js"></script>
+<script src="<?=$_base?>assets/app.js?v=2"></script>
 </body>
 </html>

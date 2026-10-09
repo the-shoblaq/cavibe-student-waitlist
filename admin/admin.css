@@ -1,1 +1,92 @@
-body{margin:0;background:#090b10;color:#f7f7fa;font-family:Inter,system-ui,sans-serif}header{padding:20px 4%;border-bottom:1px solid #29303b;display:flex;justify-content:space-between}a{color:#f2c84b;text-decoration:none}nav{display:flex;gap:20px}main{max-width:1200px;margin:auto;padding:35px 20px}.filters{display:flex;gap:8px;margin:20px 0}.filters input,.filters select,.filters button,.login input,.login button{padding:12px;border-radius:9px;border:1px solid #29303b;background:#11151c;color:#fff}.filters button,.login button{background:#f2c84b;color:#111;font-weight:800}.kpis,.panels{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}.kpis div,.panel{background:#11151c;border:1px solid #29303b;border-radius:15px;padding:20px}.kpis strong{display:block;font-size:35px}.panel p{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #29303b;padding:12px 0}.panel p b{max-width:65%;text-align:right}.table{overflow:auto}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:12px;border-top:1px solid #29303b}td small{display:block;color:#9da5b2}.login{min-height:100vh;display:grid;place-items:center}.login form{width:min(400px,90%);background:#11151c;padding:30px;border:1px solid #29303b;border-radius:18px}.login input,.login button{width:100%;margin:8px 0}.login small{display:block;color:#9da5b2;margin-top:15px}@media(max-width:650px){.kpis,.panels{grid-template-columns:1fr}.filters{flex-direction:column}}
+body{margin:0;background:#090b10;color:#f7f7fa;font-family:Inter,system-ui,sans-serif;font-size:14px}
+header{padding:18px 4%;border-bottom:1px solid #29303b;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#090b10;z-index:10}
+header b{font-size:16px}
+a{color:#f2c84b;text-decoration:none}
+nav{display:flex;gap:20px}
+main{max-width:1300px;margin:auto;padding:30px 20px}
+h1{font-size:22px;margin:0 0 20px;font-weight:700}
+h2{font-size:14px;font-weight:600;margin:0 0 14px;text-transform:uppercase;letter-spacing:.5px;color:#9da5b2}
+h2 small{font-size:13px;color:#9da5b2;font-weight:400;text-transform:none;letter-spacing:0;margin-left:6px}
+
+/* ─── Filters ─────────────────────────────────────────────────────────────── */
+.filters{display:flex;gap:8px;margin:0 0 18px;flex-wrap:wrap}
+.filters input,.filters select,.filters button,.login input,.login button{
+  padding:10px 14px;border-radius:9px;border:1px solid #29303b;
+  background:#11151c;color:#f7f7fa;font-size:13px}
+.filters button{background:#f2c84b;color:#111;font-weight:700;cursor:pointer;border-color:#f2c84b}
+.btn-clear{padding:10px 16px;border-radius:9px;border:1px solid #29303b;color:#9da5b2;font-size:13px}
+
+/* ─── KPIs ────────────────────────────────────────────────────────────────── */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 16px}
+.kpis>div{background:#11151c;border:1px solid #29303b;border-radius:14px;padding:20px 22px}
+.kpis small{display:block;font-size:12px;color:#9da5b2;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.kpis strong{font-size:36px;font-weight:800;color:#f2c84b}
+
+/* ─── Charts ──────────────────────────────────────────────────────────────── */
+.chart-card{background:#11151c;border:1px solid #29303b;border-radius:14px;padding:20px}
+.chart-card canvas{display:block;width:100%!important;height:260px!important}
+.chart-card.tall canvas{height:320px!important}
+.chart-card.full{margin:0 0 14px}
+.chart-card.full canvas{height:200px!important}
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 14px}
+
+/* ─── Table panel ─────────────────────────────────────────────────────────── */
+.panel{background:#11151c;border:1px solid #29303b;border-radius:14px;padding:20px;margin:0 0 14px;overflow:auto}
+table{width:100%;border-collapse:collapse}
+td,th{text-align:left;padding:11px 14px;border-top:1px solid #29303b;vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:#9da5b2;border-top:0}
+td small{display:block;color:#9da5b2;font-size:12px;margin-top:2px}
+
+/* ─── Tester badges ───────────────────────────────────────────────────────── */
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+.badge-yes,.tester-yes .badge{background:#4bf2a422;color:#4bf2a4}
+.badge-maybe,.tester-maybe .badge{background:#f2c84b22;color:#f2c84b}
+.badge-no,.tester-no .badge{background:#f26b4b22;color:#f26b4b}
+
+/* ─── Response detail ─────────────────────────────────────────────────────── */
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.detail-grid>div{padding:14px 16px;border-bottom:1px solid #29303b}
+.detail-grid>div:nth-child(3n+2){border-left:1px solid #29303b;border-right:1px solid #29303b}
+.detail-grid small{display:block;font-size:11px;color:#9da5b2;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+
+.section-title{font-size:16px;font-weight:700;color:#f2c84b;margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid #29303b}
+.qa-grid{display:flex;flex-direction:column}
+.qa-row{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:start;padding:12px 0;border-top:1px solid #29303b}
+.qa-row:first-child{border-top:0}
+.qa-label{font-size:12px;color:#9da5b2;font-weight:500;padding-top:2px;line-height:1.5}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{background:#1e2430;border:1px solid #29303b;border-radius:6px;padding:4px 10px;font-size:12px;line-height:1.4}
+.tag-other{background:#f2c84b15;border-color:#f2c84b44;color:#f2c84b}
+.text-val{font-size:13px;line-height:1.7;color:#d0d5df}
+.long-text{font-size:14px;line-height:1.8;color:#d0d5df;margin:0}
+
+/* Rating bar */
+.rating-display{display:flex;align-items:center;gap:10px}
+.rating-num{font-weight:700;font-size:15px;color:#f2c84b;min-width:28px}
+.rating-track{flex:1;height:7px;background:#29303b;border-radius:4px;max-width:180px}
+.rating-fill{height:100%;background:linear-gradient(90deg,#f2c84b,#f2a84b);border-radius:4px}
+
+/* ─── Login ───────────────────────────────────────────────────────────────── */
+.login{min-height:100vh;display:grid;place-items:center}
+.login form{width:min(400px,90%);background:#11151c;padding:32px;border:1px solid #29303b;border-radius:18px}
+.login h1{margin:0 0 20px;font-size:20px}
+.login input,.login button{width:100%;box-sizing:border-box;margin:6px 0;display:block}
+.login button{cursor:pointer}
+.login small{display:block;color:#9da5b2;margin-top:16px;font-size:12px}
+.err{color:#f26b4b;font-size:13px;margin:6px 0}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media(max-width:960px){
+  .kpis{grid-template-columns:1fr 1fr}
+  .chart-grid{grid-template-columns:1fr}
+  .detail-grid{grid-template-columns:1fr 1fr}
+  .detail-grid>div:nth-child(3n+2){border-left:0;border-right:0}
+  .detail-grid>div:nth-child(2n+2){border-left:1px solid #29303b}
+}
+@media(max-width:600px){
+  .kpis{grid-template-columns:1fr 1fr}
+  .filters{flex-direction:column}
+  .qa-row{grid-template-columns:1fr;gap:6px}
+  .detail-grid{grid-template-columns:1fr}
+  .detail-grid>div:nth-child(2n+2){border-left:0}
+}

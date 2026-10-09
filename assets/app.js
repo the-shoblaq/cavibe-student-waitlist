@@ -148,7 +148,7 @@
     clearError();
 
     try {
-      const res = await fetch('/submit.php', {
+      const res = await fetch(f.action, {
         method: 'POST',
         body: new FormData(f),
       });
