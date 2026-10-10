@@ -55,7 +55,7 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>Cavibe – Students Waitlist</title>
+<title>PuLoop – Students Waitlist</title>
 <link rel="icon" type="image/png" href="<?=$_base?>assets/favicon.png">
 <link rel="apple-touch-icon" href="<?=$_base?>assets/favicon.png">
 <link rel="stylesheet" href="<?=$_base?>assets/style.css?v=2">
@@ -64,7 +64,7 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
 
 <!-- TOP HEADER -->
 <header class="app-header">
-  <img src="<?=$_base?>assets/logo.png" alt="Cavibe" class="logo">
+  <img src="<?=$_base?>assets/logo.png" alt="PuLoop" class="logo">
   <a href="#" class="header-action tab-trigger" data-tab="survey">Join Waitlist</a>
 </header>
 
@@ -97,7 +97,7 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
 <!-- ══ HOME TAB ══ -->
 <section class="hero tab-section<?=$joined?'':' active'?>" id="tab-home">
   <h1>Help build the<br><em>app</em> you actually<br>want.</h1>
-  <p>Cavibe is being built around connection, creators, campus communities, opportunities, live experiences, marketplace and rewards.</p>
+  <p>PuLoop is being built around connection, creators, campus communities, opportunities, live experiences, marketplace and rewards.</p>
   <button class="btn btn-gold tab-trigger" data-tab="survey">Take the survey &rarr;</button>
 
   <div class="feature-pills">
@@ -132,7 +132,7 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
     <div class="success">
       <div class="success-icon">✓</div>
       <small>YOU'RE ON THE LIST</small>
-      <h2>Thank you for helping shape Cavibe.</h2>
+      <h2>Thank you for helping shape PuLoop.</h2>
       <p>Your response has been recorded. We'll reach out when it's time.</p>
       <a class="btn btn-whatsapp" href="https://chat.whatsapp.com/Fm9rPcBNIsOEmNo7bdxYWe" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -192,15 +192,15 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
         </label>
         <label class="idea">
           <strong>What do you wish other social-media apps had?</strong>
-          <em>Tell us what you want Cavibe to have, do differently, or do better.</em>
+          <em>Tell us what you want PuLoop to have, do differently, or do better.</em>
           <textarea name="missing_social_feature" placeholder="Share a feature, experience or idea..."></textarea>
         </label>
       </div>
 
       <!-- STEP 3 -->
       <div class="step">
-        <span class="step-label">INTEREST IN CAVIBE</span>
-        <h3>Would Cavibe fit into your digital life?</h3>
+        <span class="step-label">INTEREST IN PuLoop</span>
+        <h3>Would PuLoop fit into your digital life?</h3>
         <p class="scale">1 Strongly disagree &nbsp;·&nbsp; 5 Strongly agree</p>
         <div class="matrix">
           <?php
@@ -217,13 +217,13 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
           ] as $k=>$q) rating($k,$q,true);
           ?>
         </div>
-        <label style="margin-top:12px">How likely are you to try Cavibe?
+        <label style="margin-top:12px">How likely are you to try PuLoop?
           <select name="try_likelihood" required>
             <option value="">Select</option>
             <?php foreach(['Very unlikely','Unlikely','Neither likely nor unlikely','Likely','Very likely'] as $v) echo "<option>$v</option>"; ?>
           </select>
         </label>
-        <label style="margin-top:12px">How well will you use Cavibe?
+        <label style="margin-top:12px">How well will you use PuLoop?
           <select name="usage_frequency">
             <option value="">Select</option>
             <?php foreach(['Less than once a week','A few times a week','About once a day','Several times a day','I would not use it'] as $v) echo "<option>$v</option>"; ?>
@@ -234,7 +234,7 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
       <!-- STEP 4 -->
       <div class="step">
         <span class="step-label">FEATURE PREFERENCES</span>
-        <h3>What should Cavibe prioritize?</h3>
+        <h3>What should PuLoop prioritize?</h3>
         <fieldset>
           <legend>Most valuable features <em>Select up to 5</em></legend>
           <?php checks('valuable_features',['Photo/image posts','Short text posts','Short-form videos','Live streaming','Stories','Direct messaging','Group chats','Likes/comments/reposts/shares','Hashtags/trending topics','Personalized recommendations','Chronological feed','Polls/questions','Student clubs/communities','Events/campus announcements','Bookmark/save posts','Creation tools/filters/music'],true,5); ?>
@@ -268,7 +268,7 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
       <!-- STEP 5 -->
       <div class="step">
         <span class="step-label">EARNING OPPORTUNITIES</span>
-        <h3>How should earning on Cavibe work?</h3>
+        <h3>How should earning on PuLoop work?</h3>
         <label>Interest in earning
           <select name="earning_interest">
             <option value="">Select</option>
@@ -299,7 +299,7 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
         <h3>What would earn your trust?</h3>
         <p class="scale">1 Strongly disagree &nbsp;·&nbsp; 5 Strongly agree</p>
         <div class="matrix">
-          <?php foreach(['privacy_audience'=>'I need control over who sees my posts.','privacy_settings'=>'Clear privacy settings increase my willingness to use Cavibe.','privacy_private'=>'I want a private-account option.','privacy_tools'=>'Block, mute and report tools should be easy.','privacy_data'=>'Clear explanations of data use increase trust.','privacy_harm'=>'I want strong protection against bullying, harassment, scams and hate speech.','privacy_recommend'=>'I want control over recommendation of my content to strangers.','privacy_collection'=>'I am concerned about excessive personal-data collection.'] as $k=>$q) rating($k,$q); ?>
+          <?php foreach(['privacy_audience'=>'I need control over who sees my posts.','privacy_settings'=>'Clear privacy settings increase my willingness to use PuLoop.','privacy_private'=>'I want a private-account option.','privacy_tools'=>'Block, mute and report tools should be easy.','privacy_data'=>'Clear explanations of data use increase trust.','privacy_harm'=>'I want strong protection against bullying, harassment, scams and hate speech.','privacy_recommend'=>'I want control over recommendation of my content to strangers.','privacy_collection'=>'I am concerned about excessive personal-data collection.'] as $k=>$q) rating($k,$q); ?>
         </div>
         <fieldset>
           <legend>Essential safety features</legend>
@@ -328,7 +328,7 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
           <?php checks('accessibility_features',['Automatic captions','Screen-reader compatibility','Adjustable text size','High contrast','Dark mode','Translation tools','Data-saving mode','Audio descriptions','None']); ?>
         </fieldset>
         <fieldset>
-          <legend>What would make you stop using Cavibe? <em>Select up to 3</em></legend>
+          <legend>What would make you stop using PuLoop? <em>Select up to 3</em></legend>
           <?php checks('stop_reasons',['Too many ads','Privacy/security problems','Cyberbullying/harmful content','High data/battery usage','Slow performance/errors','Boring/irrelevant content','Too many notifications','Difficult navigation','Friends/classmates not using it','Paid features too expensive'],true,3); ?>
         </fieldset>
       </div>
@@ -336,9 +336,9 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
       <!-- STEP 7 -->
       <div class="step">
         <span class="step-label">EARLY ACCESS</span>
-        <h3>Join the Cavibe waiting list.</h3>
+        <h3>Join the PuLoop waiting list.</h3>
         <fieldset>
-          <legend>Would you test Cavibe before public launch?</legend>
+          <legend>Would you test PuLoop before public launch?</legend>
           <div class="chips">
             <?php foreach(['yes'=>'Yes, invite me','maybe'=>'Maybe','no'=>'Not now'] as $v=>$t)
               echo '<label><input type="radio" name="willing_to_test" value="'.$v.'" required><span>'.$t.'</span></label>'; ?>
@@ -354,18 +354,18 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
         </label>
         <label style="margin-top:14px">Referral / promo code<input name="referral_code"></label>
         <label class="idea">
-          <strong>One final idea for Cavibe</strong>
-          <em>Anything we didn't ask that would make Cavibe more useful, enjoyable, safer or different?</em>
+          <strong>One final idea for PuLoop</strong>
+          <em>Anything we didn't ask that would make PuLoop more useful, enjoyable, safer or different?</em>
           <textarea name="final_suggestion"></textarea>
         </label>
         <div class="consents">
           <label>
             <input type="checkbox" name="consent" value="1" required checked>
-            <span>I consent to Cavibe storing my survey response and contact details for this research and waiting list.</span>
+            <span>I consent to PuLoop storing my survey response and contact details for this research and waiting list.</span>
           </label>
           <label>
             <input type="checkbox" name="marketing_consent" value="1" checked>
-            <span>I want Cavibe launch, testing and product updates.</span>
+            <span>I want PuLoop launch, testing and product updates.</span>
           </label>
         </div>
       </div><!-- /step 7 -->
@@ -383,7 +383,7 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
 
 <!-- ══ ABOUT TAB ══ -->
 <section class="about-section tab-section" id="tab-about">
-  <h2 class="section-heading">About Cavibe</h2>
+  <h2 class="section-heading">About PuLoop</h2>
   <p class="section-sub">The campus social platform built for students, by students.</p>
 
   <div class="info-grid">
@@ -411,7 +411,7 @@ $_base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . 
 
   <div class="info-card" style="margin-top:4px">
     <h4>Why we're building this</h4>
-    <p>Students deserve a platform that understands campus life — not just one that repurposes algorithms built for everyone else. Cavibe is being shaped entirely by student feedback before a single line of production code is written.</p>
+    <p>Students deserve a platform that understands campus life — not just one that repurposes algorithms built for everyone else. PuLoop is being shaped entirely by student feedback before a single line of production code is written.</p>
   </div>
 
   <div class="info-card">
